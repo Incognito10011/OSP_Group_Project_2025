@@ -65,6 +65,8 @@ git clone https://github.com/your-username/OSP_Group_Project_2025.git
 ```sh
 git checkout -b feature-branch
 ```
+---
+
 ### **4. Make Changes and Commit**
 
    - Follow the coding standards.
@@ -72,11 +74,13 @@ git checkout -b feature-branch
 ```sh
 git commit -m "Add feature X to improve security"
 ```
+---
 
 ### **5. Push Your Changes**
 ```sh
 git push origin feature-branch
 ```
+---
 
 ### **6. Open a Pull Request (PR)**
      
@@ -84,17 +88,23 @@ git push origin feature-branch
    - Click "New Pull Request."
    - Add a description of your changes.
 
+---
+
 ## **Coding Guidelines**
 
    - Follow consistent naming conventions.
    - Write meaningful comments.
    - Ensure your code passes all tests.
 
+---
+
 ## **Reporting Issues**
 
    - Check if the issue already exists.
    - Provide a clear title and description.
    - Include steps to reproduce the issue if applicable.
+     
+---
 
 ## **Code of Conduct**
 By contributing, you agree to follow our [Code of Conduct](CodeOfConduct.md).
