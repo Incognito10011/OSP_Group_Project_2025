@@ -107,4 +107,4 @@ git push origin feature-branch
 ---
 
 ## **Code of Conduct**
-By contributing, you agree to follow our [Code of Conduct](CodeOfConduct.md).
+By contributing, you agree to follow our [Code of Conduct](CODE_OF_CONDUCT.md).
