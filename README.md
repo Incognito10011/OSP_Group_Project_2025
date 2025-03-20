@@ -12,10 +12,24 @@
 # Contents
 
 1. ### Overview
+
+JED is a locally run blog posting tool, which allows the user to create and categorise blog posts and stores them in a database for others to view
+
 2. ### Features
+
+Users will be able to create and categorise their blog posts, saving them to a database where they can look at other's posts.
+
 3. ### Languages Used
+
+HTML, JavaScript,
+
 4. ### Tools Used
+
+
+
 5. ### Contributors
+
+
 
 ---
 
