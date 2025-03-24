@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .create-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+            height: 90%;
+        }
+
+        .create-container h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .create-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .create-container label {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .create-container input,
+        .create-container select,
+        .create-container textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .create-container input[type="submit"] {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 50%;
+            margin-left: 25%;
+            transition: background-color 0.3s;
+        }
+
+        .create-container input[type="submit"]:hover {
+            background-color: darkgreen;
+        }
+
+        .create-container .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .create-container textarea {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="create-container">
+        <h3>Create Your Blog</h3>
+
+        <form id="blogForm">
+            <label for="title">Blog Title:</label>
+            <textarea id="content" name="content" placeholder="Enter Blog Title" rows="1" required></textarea>
+
+            <label for="name">Writers Name:</label>
+            <textarea id="content" name="content" placeholder="Enter Your Name" rows="1" required></textarea>
+
+            <label for="category">Choose Blog Category:</label>
+            <select id="category" name="category" required>
+                <option value="">-- Select a Category --</option>
+                <option value="tech">Tech</option>
+                <option value="food">Food</option>
+                <option value="dinosaurs">Dinosaurs</option>
+                <option value="travel">Travel</option>
+                <option value="lifestyle">Lifestyle</option>
+            </select>
+
+            <label for="email">Blog Content:</label>
+            <textarea id="content" name="content" placeholder="Enter Blog Content" rows="20" required></textarea>
+
+            <div class="error-message" id="error-message">
+                Please fill in all fields correctly!
+            </div>
+
+            <input type="submit" value="Create" id="createButton">
+        </form>
+
+    </div>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
