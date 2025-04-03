@@ -127,7 +127,7 @@ document.getElementById("blogForm").addEventListener("submit", async (e) => {
   };
 
   try {
-    const res = await fetch("http://localhost:5050/record", {
+    const res = await fetch("http://localhost:5050/blogs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

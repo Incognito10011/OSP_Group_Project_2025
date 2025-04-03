@@ -6,7 +6,7 @@ import db from "../db/connection.js"
 // this will convert the id from  string to obj for the id
 import { ObjectId } from "mongodb";
 // router is an instance of the express router. we use it to define our routes
-// the router will be added as middleware and will take control of requests starting with path /record.
+// the router will be added as middleware and will take control of requests starting with path /blogs.
 
 const router = express.Router();
 
@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
 
 // this section will help you get a single record by id
 router.get("/:id", async (req, res) => {
-    let collection = await db.collection("records");
+    let collection = await db.collection("blogs");
     let query = { _id: new ObjectId(req.params.id) };
     let result = await collection.findOne(query);
 
@@ -35,7 +35,7 @@ try {
     category: req.body.category,
     blogbody: req.body.blogbody,
     };
-    let collection = await db.collection("records");
+    let collection = await db.collection("blogs");
     let result = await collection.insertOne(newDocument);
     res.send(result).status(204);
 }   catch (err) {
@@ -56,7 +56,7 @@ try {
       },
     };
 
-    let collection = await db.collection("records");
+    let collection = await db.collection("blogs");
     let result = await collection.updateOne(query, updates);
     res.send(result).status(200);
 }   catch (err) {
@@ -70,7 +70,7 @@ router.delete("/:id", async (req, res) => {
   try {
     const query = { _id: new ObjectId(req.params.id) };
 
-    const collection = db.collection("records");
+    const collection = db.collection("blogs");
     let result = await collection.deleteOne(query);
 
     res.send(result).status(200);

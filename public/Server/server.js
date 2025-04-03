@@ -2,7 +2,7 @@
 
 import express from "express";
 import cors from "cors";
-import records from "./routes/records.js";
+import blogs from "./routes/blogs.js";
 
 // get port from env variables or if its missing just set it to 5050
 const PORT = process.env.PORT || 5050;
@@ -10,7 +10,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/record", records);
+app.use("/blogs", blogs);
 
 // start epress server
 app.listen(PORT,() => {
