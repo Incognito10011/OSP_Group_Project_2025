@@ -219,7 +219,8 @@
         <main>
             <div>
                 <p class="homemessage"><b>Blogs</b></p>
-                
+
+                <div id="blogList" class="main"></div> <!-- creating blog list -->
                 
             </div>
 
@@ -237,5 +238,44 @@
     menu.classList.toggle('open');
 }
         </script>
+
+    <script>
+async function fetchAndDisplayBlogs() {
+  try {
+    const res = await fetch("http://localhost:5050/blogs");
+    const blogs = await res.json();
+
+    const blogList = document.getElementById("blogList");
+
+    console.log("Fetched blogs:", blogs);
+    console.log("Fetch response:", res);
+
+    blogs.forEach(blog => {
+      const blogCard = document.createElement("div");
+      blogCard.style.border = "1px solid white";
+      blogCard.style.margin = "20px 0";
+      blogCard.style.padding = "20px";
+      blogCard.style.borderRadius = "8px";
+      blogCard.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+      blogCard.innerHTML = `
+        <h2>${blog.title}</h2>
+        <h4>Category: ${blog.category}</h4>
+        <p>${blog.blogbody}</p>
+      `;
+
+      blogList.appendChild(blogCard);
+    });
+  } catch (err) {
+    console.error("Error fetching blogs:", err);
+    const blogList = document.getElementById("blogList");
+    blogList.innerHTML = "<p style='color: red;'>Failed to load blogs.</p>";
+  }
+}
+
+fetchAndDisplayBlogs();
+</script>
+
+
+
     </body>
 </html>
