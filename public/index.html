@@ -188,8 +188,39 @@
                 text-align: center;
                 font-size: 3em;
             }
+
+            .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .floating-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 15px;
+            width: 250px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
     
         </style>
+         <script>
+            async function getDinoFact() {
+                const response = await fetch("http://127.0.0.1:5000/get_dino_fact");
+                const data = await response.json();
+                document.getElementById("fact").innerText = data.fact;
+            }
+        </script>
     </head>
     <body>
 
@@ -222,6 +253,14 @@
                 
             </div>
 
+            <button class="floating-button" id="toggleButton">Get Blog Idea</button>
+            <div class="floating-box" id="blogBox">
+                <h1>Click the button for blog inspiration!</h1>
+                <button onclick="getDinoFact()">Get Blog idea</button>
+                <p id="fact"></p>
+                <button class="" id="close">Close</button>
+            </div>
+
         </main>
 
 
@@ -235,6 +274,17 @@
             function toggleMobileMenu(menu) {
     menu.classList.toggle('open');
 }
+        </script>
+        <script>
+            document.getElementById("toggleButton").addEventListener("click", function() {
+            document.getElementById("toggleButton").style.display = "none";
+            document.getElementById("blogBox").style.display = "block";
+        });
+
+        document.getElementById("close").addEventListener("click", function() {
+            document.getElementById("toggleButton").style.display = "block";
+            document.getElementById("blogBox").style.display = "none";
+        });
         </script>
     </body>
 </html>
