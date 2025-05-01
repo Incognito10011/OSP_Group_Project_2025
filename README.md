@@ -49,10 +49,12 @@ This is a blog website that includes all the featues of any other blog website
 
 ## Contributors
 
-<p>
-  <a href="https://github.com/JJLane13" style="text-align: center; display: inline-block;">
-    <img src="/profile_images/j.png" alt="Jack Jackson-Lane" style="display: block; margin: 0 auto;">
-    Jack Jackson-Lane
+<p style="text-align: center;">
+  <a href="https://github.com/JJLane13" style="text-decoration: none; color: inherit;">
+    <div style="display: inline-block;">
+      <img src="/profile_images/j.png" alt="Jack Jackson-Lane" style="display: block; margin: 0 auto; width: 100px; height: auto;">
+      <div>Jack Jackson-Lane</div>
+    </div>
   </a>
 </p>
 <p><a href="https://github.com/JJLane13"><img src="/profile_images/d.png">Dovydas Krutulis</a></p>
