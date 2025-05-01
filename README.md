@@ -52,25 +52,26 @@ This is a blog website that includes all the featues of any other blog website
 <div style="display: flex; justify-content: space-around; text-align: center;">
   <a href="https://github.com/JJLane13" style="text-decoration: none; color: inherit;">
     <div>
-      <img src="/profile_images/j.png" alt="Jack Jackson-Lane" style="width: 100px; height: auto;">
+      <img src="/profile_images/j.png" alt="Jack Jackson-Lane" style="width: 100px; height: auto; display: block; margin: 0 auto;">
       <div>Jack Jackson-Lane</div>
     </div>
   </a>
 
-  <a href="https://github.com/AnotherUser" style="text-decoration: none; color: inherit;">
+  <a href="https://github.com/JJLane13" style="text-decoration: none; color: inherit;">
     <div>
-      <img src="/profile_images/another.png" alt="Another User" style="width: 100px; height: auto;">
-      <div>Another User</div>
+      <img src="/profile_images/d.png" alt="Dovydas Krutulis" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+      <div>Dovydas Krutulis</div>
     </div>
   </a>
 
-  <a href="https://github.com/ThirdUser" style="text-decoration: none; color: inherit;">
+  <a href="https://github.com/JJLane13" style="text-decoration: none; color: inherit;">
     <div>
-      <img src="/profile_images/third.png" alt="Third User" style="width: 100px; height: auto;">
-      <div>Third User</div>
+      <img src="/profile_images/e.png" alt="Emmet Brosnan" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+      <div>Emmet Brosnan</div>
     </div>
   </a>
 </div>
+
 <p>(<a href="#top">back to top</a>)</p>
 
 
