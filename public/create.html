@@ -157,10 +157,10 @@
 
         <form id="blogForm">
             <label for="title">Blog Title:</label>
-            <textarea id="content" name="content" placeholder="Enter Blog Title" rows="1" required></textarea>
+            <textarea id="title" name="title" placeholder="Enter Blog Title" rows="1" required></textarea>
 
             <label for="name">Writers Name:</label>
-            <textarea id="content" name="content" placeholder="Enter Your Name" rows="1" required></textarea>
+            <textarea id="name" name="name" placeholder="Enter Your Name" rows="1" required></textarea>
 
             <label for="category">Choose Blog Category:</label>
             <select id="category" name="category" required>
@@ -172,7 +172,7 @@
                 <option value="lifestyle">Lifestyle</option>
             </select>
 
-            <label for="email">Blog Content:</label>
+            <label for="blogBox">Blog Content:</label>
             <textarea id="content" name="content" placeholder="Enter Blog Content" rows="20" required></textarea>
 
             <div class="error-message" id="error-message">
@@ -213,7 +213,7 @@ document.getElementById("blogForm").addEventListener("submit", async (e) => {
   const data = {
     title: document.getElementById("title").value,
     category: document.getElementById("category").value,
-    blogbody: document.getElementById("blogbody").value,
+    blogBox: document.getElementById("blogBox").value,
   };
 
   try {
