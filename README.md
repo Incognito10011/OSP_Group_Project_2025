@@ -49,28 +49,29 @@ This is a blog website that includes all the featues of any other blog website
 
 ## Contributors
 
-<div style="display: flex; justify-content: space-around; text-align: center;">
-  <a href="https://github.com/JJLane13" style="text-decoration: none; color: inherit;">
+<div style="display: flex; justify-content: space-around; text-align: center; align-items: center; flex-wrap: nowrap;">
+  <a href="https://github.com/JJLane13" style="text-decoration: none; color: inherit; flex: 1;">
     <div>
       <img src="/profile_images/j.png" alt="Jack Jackson-Lane" style="width: 100px; height: auto; display: block; margin: 0 auto;">
       <div>Jack Jackson-Lane</div>
     </div>
   </a>
 
-  <a href="https://github.com/JJLane13" style="text-decoration: none; color: inherit;">
+  <a href="https://github.com/JJLane13" style="text-decoration: none; color: inherit; flex: 1;">
     <div>
       <img src="/profile_images/d.png" alt="Dovydas Krutulis" style="width: 100px; height: auto; display: block; margin: 0 auto;">
       <div>Dovydas Krutulis</div>
     </div>
   </a>
 
-  <a href="https://github.com/JJLane13" style="text-decoration: none; color: inherit;">
+  <a href="https://github.com/JJLane13" style="text-decoration: none; color: inherit; flex: 1;">
     <div>
       <img src="/profile_images/e.png" alt="Emmet Brosnan" style="width: 100px; height: auto; display: block; margin: 0 auto;">
       <div>Emmet Brosnan</div>
     </div>
   </a>
 </div>
+
 
 <p>(<a href="#top">back to top</a>)</p>
 
