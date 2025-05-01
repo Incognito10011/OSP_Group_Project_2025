@@ -23,8 +23,12 @@
 4. ### Tools Used
 
 
+5. ### How To Use
+    #### (a) How to Connect AI
+    #### (b) How to Connect Database
 
-5. ### Contributors
+
+6. ### Contributors
 
 
 
@@ -32,7 +36,14 @@
 
 ## Overview
 
-This is a blog website that includes all the featues of any other blog website
+This is a blog website that includes all the featues of any other blog website.
+We have Multiple different Pages
+    - Homepage:
+    - View Blog Page:
+    - Create Blog Page
+    - About Us Page:
+    - Contact Us Page:
+    - 
 
 ## Features
 
@@ -58,13 +69,13 @@ This is a blog website that includes all the featues of any other blog website
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/JJLane13">
+      <a href="https://github.com/Incognito10011">
         <img src="/profile_images/d.png" width="100px;" alt="Dovydas Krutulis"/><br />
         <sub><b>Dovydas Krutulis</b></sub>
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/JJLane13">
+      <a href="https://github.com/usingthisforschool">
         <img src="/profile_images/e.png" width="100px;" alt="Emmet Brosnan"/><br />
         <sub><b>Emmet Brosnan</b></sub>
       </a>
