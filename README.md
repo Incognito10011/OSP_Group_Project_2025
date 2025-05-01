@@ -38,7 +38,7 @@ This is a blog website that includes all the featues of any other blog website
 
 - View Blogs
 - Create Blogs
-- Edit Blogs
+- AI Blog idea generator
 
 ## Languages Used
 [<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" alt="Typescript" width="48">](https://developer.mozilla.org/en-US/docs/Web/HTML)
@@ -49,9 +49,9 @@ This is a blog website that includes all the featues of any other blog website
 
 ## Contributors
 
-<p><a href="https://github.com/JJLane13">Jack Jackson-Lane</a></p>
-<p>Dovydas Krutulis</p>
-<p>Emmet Brosnan</p>
+<p><a href="https://github.com/JJLane13"><img src="/profile_images/j.png">Jack Jackson-Lane</a></a></p>
+<p><a href="https://github.com/JJLane13"><img src="/profile_images/d.png">Dovydas Krutulis</a></p>
+<p><a href="https://github.com/JJLane13"><img src="/profile_images/e.png">Emmet Brosnan</a></p>
 
 <p>(<a href="#top">back to top</a>)</p>
 
