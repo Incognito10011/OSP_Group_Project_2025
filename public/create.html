@@ -172,7 +172,7 @@
                 <option value="lifestyle">Lifestyle</option>
             </select>
 
-            <label for="blogBox">Blog Content:</label>
+            <label for="content">Blog Content:</label>
             <textarea id="content" name="content" placeholder="Enter Blog Content" rows="20" required></textarea>
 
             <div class="error-message" id="error-message">
@@ -185,35 +185,38 @@
     </div>
 
     <button class="floating-button" id="toggleButton">AI</button>
-            <div class="floating-box" id="blogBox">
+            <div class="floating-box" id="Aicontent">
                 <h3>Click the button for blog inspiration! <button class="close_button" id="close"><b>V</b></button></h3>
                 <button onclick="getDinoFact()" class="blog_button">Get Blog idea</button>
                 <p id="fact"></p>
             </div>
 
     <script>
+
+        // Ai script
+
         document.getElementById("toggleButton").addEventListener("click", function() {
         document.getElementById("toggleButton").style.display = "none";
-        document.getElementById("blogBox").style.display = "block";
+        document.getElementById("Aicontent").style.display = "block";
     });
 
     document.getElementById("close").addEventListener("click", function() {
         document.getElementById("toggleButton").style.display = "block";
-        document.getElementById("blogBox").style.display = "none";
+        document.getElementById("Aicontent").style.display = "none";
     });
-    </script>
-</body>
 
-</html>
+// blog creation script
 
-    <script>
 document.getElementById("blogForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
+// list of availible values, refer to records.js
+
   const data = {
     title: document.getElementById("title").value,
+    name: document.getElementById("name").value,
     category: document.getElementById("category").value,
-    blogBox: document.getElementById("blogBox").value,
+    content: document.getElementById("content").value,
   };
 
   try {
@@ -224,17 +227,20 @@ document.getElementById("blogForm").addEventListener("submit", async (e) => {
       },
       body: JSON.stringify(data)
     });
-
+// better error handler
     if (res.ok) {
       alert("Blog created!");
       document.getElementById("blogForm").reset();
+      window.location.href = "blogs.html"; // Redirect after creation
     } else {
-      alert("Failed to create blog.");
+      const error = await res.json();
+      alert(`Failed to create blog: ${error.message || res.statusText}`);
     }
   } catch (err) {
     console.error(err);
-    alert("Error submitting blog.");
+    alert("Error submitting blog. Check console for details.");
   }
 });
     </script>
 </body>
+</html>

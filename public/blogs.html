@@ -217,8 +217,9 @@
 
 
         <main>
-            <div>
+            <div class="main">
                 <p class="homemessage"><b>Blogs</b></p>
+                <div id="blogList"></div>
                 
                 
             </div>
@@ -239,15 +240,32 @@
         </script>
 
         <script>
+        // script to get blogs
 async function fetchAndDisplayBlogs() {
+
+const blogList = document.getElementById("blogList");
+if (!blogList) {
+    console.error("blogList element not found");
+    return;
+}
   try {
+ //loading message
+  blogList.innerHTML = "<p>Loading blogs...</p>";
+
+
     const res = await fetch("http://localhost:5050/blogs");
+    if (!res.ok) throw new Error(`http error status: ${res.status}`);
+
     const blogs = await res.json();
 
-    const blogList = document.getElementById("blogList");
+   // Clears loading message
+  blogList.innerHTML = '';
 
     console.log("Fetched blogs:", blogs);
+
     console.log("Fetch response:", res);
+
+// How the blogs will display, including format, refer to records.js for available formatting.
 
     blogs.forEach(blog => {
       const blogCard = document.createElement("div");
@@ -258,15 +276,15 @@ async function fetchAndDisplayBlogs() {
       blogCard.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
       blogCard.innerHTML = `
         <h2>${blog.title}</h2>
+        <h3>${blog.name}</h3>
         <h4>Category: ${blog.category}</h4>
-        <p>${blog.blogbody}</p>
+        <p>${blog.content}</p>
       `;
 
       blogList.appendChild(blogCard);
     });
   } catch (err) {
     console.error("Error fetching blogs:", err);
-    const blogList = document.getElementById("blogList");
     blogList.innerHTML = "<p style='color: red;'>Failed to load blogs.</p>";
   }
 }
