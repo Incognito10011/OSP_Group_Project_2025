@@ -24,8 +24,9 @@
 
 
 5. ### How To Use
-    #### (a) How to Connect AI
+    #### (a) Dependencies
     #### (b) How to Connect Database
+    #### (c) How to Connect AI
 
 
 6. ### Contributors
@@ -38,12 +39,12 @@
 
 This is a blog website that includes all the featues of any other blog website.
 We have Multiple different Pages
-    - Homepage:
-    - View Blog Page:
-    - Create Blog Page
-    - About Us Page:
-    - Contact Us Page:
-    - 
+  - <b>Homepage:</b>   The First page you see when the website is loaded
+  - <b>View Blog Page:</b>   Page used to view the blogs
+  - <b>Create Blog Page:</b>   Page used to create your blogs
+  - <b>About Us Page:</b>   Has information about us developers
+  - <b>Contact Us Page:</b>   Has information about how to contact us
+  - <b>AI:</b>   AI can be used for blog inspiration
 
 ## Features
 
@@ -54,9 +55,21 @@ We have Multiple different Pages
 ## Languages Used
 [<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" alt="Typescript" width="48">](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png" alt="css" width="35">](https://www.w3.org/Style/CSS/Overview.en.html)
+
+
 ## Tools Used
 [<img src="https://raw.githubusercontent.com/Delta456/Delta456/master/img/git.png" alt="Git" width="48">](https://git-scm.com/) 
 [<img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="VSCode" width="48">](https://code.visualstudio.com/)
+
+
+## How To Use
+  ### (a) Dependencies
+    ...
+  ### (b) How to Connect Database
+    ...
+  ### (c) How to Connect AI
+    ...
+
 
 ## Contributors
 
