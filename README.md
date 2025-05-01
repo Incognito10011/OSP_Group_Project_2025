@@ -13,15 +13,12 @@
 
 1. ### Overview
 
-JED is a locally run blog posting tool, which allows the user to create and categorise blog posts and stores them in a database for others to view
 
 2. ### Features
 
-Users will be able to create and categorise their blog posts, saving them to a database where they can look at other's posts.
 
 3. ### Languages Used
 
-HTML, JavaScript,
 
 4. ### Tools Used
 
@@ -52,7 +49,7 @@ This is a blog website that includes all the featues of any other blog website
 
 ## Contributors
 
-<p>Jack Jackson-Lane</p>
+<p><a href="https://github.com/JJLane13">Jack Jackson-Lane</a></p>
 <p>Dovydas Krutulis</p>
 <p>Emmet Brosnan</p>
 
