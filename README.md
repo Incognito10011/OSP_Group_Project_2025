@@ -1,4 +1,4 @@
-# Blog Website
+<img src="/profile_images/logo.png" width="100px;" alt="logo">
 
 
 ![Static Badge](https://img.shields.io/badge/3-3?label=Contributors&color=Green) ![Static Badge](https://img.shields.io/badge/0-0?label=Issues&color=red)
@@ -6,30 +6,18 @@
  ![Static Badge](https://img.shields.io/badge/0-0?label=Version&color=blue)
  [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
+- [Overview](#overview)
+- [Features](#features)
+- [How To Contribute](#how-to-contribute)
+- [How To Use](#how-to-use)
+  - [Dependencies](#dependencies)
+  - [How to Connect Database](#how-to-connect-database)
+  - [How to Connect AI](#how-to-connect-ai)
+- [Languages Used](#languages-used)
+- [Tools Used](#tools-used)
+- [Licence](#licence)
+- [Contributors](#contributors)
 
-
-
-# Contents
-
-1. ### Overview
-
-
-2. ### Features
-
-
-3. ### Languages Used
-
-
-4. ### Tools Used
-
-
-5. ### How To Use
-    #### (a) Dependencies
-    #### (b) How to Connect Database
-    #### (c) How to Connect AI
-
-
-6. ### Contributors
 
 
 
@@ -52,9 +40,23 @@ We have Multiple different Pages
 - Create Blogs
 - AI Blog idea generator
 
+## How To Contribute
+
+
+## How To Use
+  ### Dependencies
+    ...
+  ### How to Connect Database
+    ...
+  ### How to Connect AI
+    ...
+
+
 ## Languages Used
+[<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" alt="Javascript" width="48">](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" alt="Typescript" width="48">](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png" alt="css" width="35">](https://www.w3.org/Style/CSS/Overview.en.html)
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png" alt="Python" width="48">](https://docs.python.org/3/)
 
 
 ## Tools Used
@@ -62,14 +64,8 @@ We have Multiple different Pages
 [<img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="VSCode" width="48">](https://code.visualstudio.com/)
 
 
-## How To Use
-  ### (a) Dependencies
-    ...
-  ### (b) How to Connect Database
-    ...
-  ### (c) How to Connect AI
-    ...
-
+## Licence
+We chose the MIT Licence. <a href="https://github.com/Incognito10011/OSP_Group_Project_2025/blob/main/LICENSE">See Licence Here</a>
 
 ## Contributors
 
