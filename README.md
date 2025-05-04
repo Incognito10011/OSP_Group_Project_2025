@@ -60,7 +60,18 @@ There is many different ways you can contribute. If you want more information, p
   ### How to Connect Database
     ...
   ### How to Connect AI
-    ...
+  #### After installing the needed dependencies
+  #### Open
+
+    script.py
+
+  #### You will be required to get your own API key, but for demonstration purposes It is provided for you.
+  #### To edit/add your own API key:
+  #### Edit the .env file located in public
+      OPENAI_API_KEY= " Your key Here"
+  #### The line of code will look something like this, add your API key, where it says "Your key Here"
+      
+    
 
 
 ## Languages Used
