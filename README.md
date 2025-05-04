@@ -70,6 +70,7 @@ There is many different ways you can contribute. If you want more information, p
   #### Edit the .env file located in public
       OPENAI_API_KEY= " Your key Here"
   #### The line of code will look something like this, add your API key, where it says "Your key Here"
+  ### Note: This AI is made using OpenAI, unexpect problems will occur if different AI API keys are used.
       
     
 
