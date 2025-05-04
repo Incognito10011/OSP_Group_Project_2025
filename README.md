@@ -67,13 +67,13 @@ or
 
     StartProgramWindows
 
-## Known issues for StartProgram script
+#### Known issues for StartProgram script
 
 You will need to make the file executible yourself by useing the command
 
     chmod +x StartProgramLinuxMac
 
-# Python Not Found
+#### Python Not Found
 
 If you're on a windows machine, It may default to the windows app PATH for python instead of the %appdata% path.
 to fix this you need to search "manage app execution aliases" and uncheck python and python3
