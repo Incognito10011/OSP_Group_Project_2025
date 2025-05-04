@@ -1,10 +1,11 @@
 <img src="/profile_images/logo.png" width="200px;" alt="logo">
 
 
-![Static Badge](https://img.shields.io/badge/3-3?label=Contributors&color=Green) ![Static Badge](https://img.shields.io/badge/0-0?label=Issues&color=red)
-![Static Badge](https://img.shields.io/badge/0-0?label=Pull%20Requests&color=red)
- ![Static Badge](https://img.shields.io/badge/0-0?label=Version&color=blue)
- [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+![Static Badge](https://img.shields.io/badge/3-3?label=Contributors&color=Green) 
+![Static Badge](https://img.shields.io/badge/3-3?label=Issues&color=red)
+![Static Badge](https://img.shields.io/badge/1-1?label=Version&color=blue)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
+[![Static Badge](https://img.shields.io/badge/MIT-MIT?label=Licence&color=orange)](LICENSE)
 
 
 ## Table Of Contents
