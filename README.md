@@ -47,8 +47,16 @@ We have Multiple different Pages
 There is many different ways you can contribute. If you want more information, please check our Contribtuing.md file <a href="https://github.com/Incognito10011/OSP_Group_Project_2025/blob/main/CONTRIBUTING.md">HERE</a> and please check the Code of Conduct <a href="https://github.com/Incognito10011/OSP_Group_Project_2025/blob/main/CODE_OF_CONDUCT.md">HERE</a> before contributing
 
 ## How To Use
-  ### Dependencies
-    ...
+  ## Dependencies (preferably, install in a virtual environment)
+  ### For Python
+  Install the following packages:
+  
+      pip install -r requirements.txt
+  ### For JavaScript
+  Install the necessary packages using npm:
+
+    npm install express cors dotenv mongodb
+
   ### How to Connect Database
     ...
   ### How to Connect AI
