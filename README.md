@@ -58,7 +58,30 @@ There is many different ways you can contribute. If you want more information, p
     npm install express cors dotenv mongodb
 
   ### How to Connect Database
-    ...
+
+  Depending on your system, run either
+  
+    StartProgramLinuxMac
+    
+or
+
+    StartProgramWindows
+
+## Known issues for StartProgram script
+
+You will need to make the file executible yourself by useing the command
+
+    chmod +x StartProgramLinuxMac
+
+# Python Not Found
+
+If you're on a windows machine, It may default to the windows app PATH for python instead of the %appdata% path.
+to fix this you need to search "manage app execution aliases" and uncheck python and python3
+
+then uninstall python, reinstall it and **make sure to check add to PATH**.
+
+restart your computer and it should work.
+
   ### How to Connect AI
   #### After installing the needed dependencies
   #### Open
