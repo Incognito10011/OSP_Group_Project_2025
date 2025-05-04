@@ -13,7 +13,7 @@
 - [Features](#features)
 - [How To Contribute](#how-to-contribute)
 - [How To Use](#how-to-use)
-  - [Dependencies](#dependencies)
+  - [Dependencies](#dependencies-preferably-install-in-a-virtual-environment)
   - [How to Connect Database](#how-to-connect-database)
   - [How to Connect AI](#how-to-connect-ai)
 - [Languages Used](#languages-used)
@@ -47,7 +47,7 @@ We have Multiple different Pages
 There is many different ways you can contribute. If you want more information, please check our CONTRIBUTING.md file <a href="https://github.com/Incognito10011/OSP_Group_Project_2025/blob/main/CONTRIBUTING.md">HERE</a> and please check the Code of Conduct <a href="https://github.com/Incognito10011/OSP_Group_Project_2025/blob/main/CODE_OF_CONDUCT.md">HERE</a> before contributing
 
 ## How To Use
-  ## Dependencies (preferably, install in a virtual environment)
+## Dependencies (preferably, install in a virtual environment)
   ### For Python
   Install the following packages:
   
