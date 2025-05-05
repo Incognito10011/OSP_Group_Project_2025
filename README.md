@@ -84,10 +84,6 @@ restart your computer and it should work.
 
   ### How to Connect AI
   #### After installing the needed dependencies, If not please follow the tutorial [HERE](#dependencies-preferably-install-in-a-virtual-environment)
-  #### Open
-
-    script.py
-
   #### You will be required to get your own API key or By contacting us, so we can provide a test key.
   #### To edit/add your own API key:
   #### Edit the .env file located in Server
