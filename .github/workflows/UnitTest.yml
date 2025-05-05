@@ -1,0 +1,44 @@
+name: Run Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        language: [node, python]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        if: matrix.language == 'node'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Node.js dependencies
+        if: matrix.language == 'node'
+        run: npm install
+
+      - name: Make jest executable
+        if: matrix.language == 'node'
+        run: chmod +x ./node_modules/.bin/jest
+
+      - name: Run Node.js tests
+        if: matrix.language == 'node'
+        run: ./node_modules/.bin/jest
+
+      - name: Set up Python
+        if: matrix.language == 'python'
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        if: matrix.language == 'python'
+        run: pip install pytest
+
+      - name: Run Python tests
+        if: matrix.language == 'python'
+        run: pytest
