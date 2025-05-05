@@ -10,12 +10,24 @@ if (!uri) {
 }
 
 const client = new MongoClient(uri, {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-    },
+  tls: true,
+  tlsAllowInvalidCertificates: true, // QUICK MAC FIX, should be able to connect reguardless of tls handshake
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
 });
+
+// UNCOMMENT FOR FULL RELEASE, THIS IS A QUICK FIX BUT NOT SECURE
+
+//const client = new MongoClient(uri, {
+//    serverApi: {
+//        version: ServerApiVersion.v1,
+//        strict: true,
+//        deprecationErrors: true,
+//    },
+//});
 
 
 //async function added, allows the await command to work, should.

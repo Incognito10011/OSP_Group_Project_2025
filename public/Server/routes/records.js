@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
 
 // this section will help you get a single record by id
 router.get("/:id", async (req, res) => {
-    let collection = await db.collection("records");
+    let collection = await db.collection("blogs");
     let query = { _id: new ObjectId(req.params.id) };
     let result = await collection.findOne(query);
 
@@ -28,21 +28,23 @@ router.get("/:id", async (req, res) => {
     });
 
 // this section creates a record,
-router.post ("/", async (req, res) => {
+router.post("/", async (req, res) => {
 try {
     let newDocument = {
     title: req.body.title,
+    name: req.body.name,
     category: req.body.category,
-    blogbody: req.body.blogbody,
+    content: req.body.content,
+    createdAt: new Date()
     };
-    let collection = await db.collection("records");
+    let collection = await db.collection("blogs");
     let result = await collection.insertOne(newDocument);
     res.send(result).status(204);
-}   catch (err) {
-}   console.error(err);
-    res.status(500).send("Error adding blog")
+} catch (err) {
+    console.error("Error creating blog :", err);
+    res.status(500).json({ error: "failed to create blog" });
+}
 });
-
 // this section is for updating an existing blog
 router.patch("/:id", async (req, res) => {
 try {
@@ -50,13 +52,14 @@ try {
     const updates = {
       $set: {
       title: req.body.title,
-      writer: req.body.writer,
+      name: req.body.name,
       category: req.body.category,
-      blogbody: req.body.blogbody,
+      content: req.body.content,
+      updatedAt: new Date()
       },
     };
 
-    let collection = await db.collection("records");
+    let collection = await db.collection("blogs");
     let result = await collection.updateOne(query, updates);
     res.send(result).status(200);
 }   catch (err) {
@@ -70,7 +73,7 @@ router.delete("/:id", async (req, res) => {
   try {
     const query = { _id: new ObjectId(req.params.id) };
 
-    const collection = db.collection("records");
+    const collection = db.collection("blogs");
     let result = await collection.deleteOne(query);
 
     res.send(result).status(200);

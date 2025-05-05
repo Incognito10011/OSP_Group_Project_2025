@@ -79,7 +79,73 @@
             font-size: 1em;
             margin-bottom: 20px;
         }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 15px;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+          
+
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 3rem;
+        }
+        .floating-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border: 3px solid black;
+            padding: 15px;
+            width: 400px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            max-height: 700px;
+            border-radius: 30px;
+        }
+
+        .close_button {
+            font-size: 1rem;
+            margin-left: 6%;
+            cursor: pointer;
+            border: 2px solid black;
+            background-color: white;
+        }
+
+        .blog_button {
+            font-size: 1rem;
+            cursor: pointer;
+            width: 30%;
+            border: 2px solid black;
+            background-color: white;
+            border-radius: 30px;
+        }
+
     </style>
+
+<script>
+    async function getDinoFact() {
+        const response = await fetch("http://127.0.0.1:5000/get_dino_fact");
+        const data = await response.json();
+        document.getElementById("fact").innerText = data.fact;
+    }
+</script>
 </head>
 
 <body>
@@ -87,12 +153,14 @@
     <div class="create-container">
         <h3>Create Your Blog</h3>
 
+        <a href="index.html"><button class="back-button"><-- Back</button></a>
+
         <form id="blogForm">
             <label for="title">Blog Title:</label>
             <textarea id="title" name="title" placeholder="Enter Blog Title" rows="1" required></textarea>
 
-            <label for="writer">Writers Name:</label>
-            <textarea id="writer" name="writer" placeholder="Enter Your Name" rows="1" required></textarea>
+            <label for="name">Writers Name:</label>
+            <textarea id="name" name="name" placeholder="Enter Your Name" rows="1" required></textarea>
 
             <label for="category">Choose Blog Category:</label>
             <select id="category" name="category" required>
@@ -104,8 +172,8 @@
                 <option value="lifestyle">Lifestyle</option>
             </select>
 
-            <label for="blogbody">Blog Content:</label>
-            <textarea id="blogbody" name="blogbody" placeholder="Enter Blog Content" rows="20" required></textarea>
+            <label for="content">Blog Content:</label>
+            <textarea id="content" name="content" placeholder="Enter Blog Content" rows="20" required></textarea>
 
             <div class="error-message" id="error-message">
                 Please fill in all fields correctly!
@@ -116,41 +184,63 @@
 
     </div>
 
+    <button class="floating-button" id="toggleButton">AI</button>
+            <div class="floating-box" id="Aicontent">
+                <h3>Click the button for blog inspiration! <button class="close_button" id="close"><b>V</b></button></h3>
+                <button onclick="getDinoFact()" class="blog_button">Get Blog idea</button>
+                <p id="fact"></p>
+            </div>
+
     <script>
+
+        // Ai script
+
+        document.getElementById("toggleButton").addEventListener("click", function() {
+        document.getElementById("toggleButton").style.display = "none";
+        document.getElementById("Aicontent").style.display = "block";
+    });
+
+    document.getElementById("close").addEventListener("click", function() {
+        document.getElementById("toggleButton").style.display = "block";
+        document.getElementById("Aicontent").style.display = "none";
+    });
+
+// blog creation script
+
 document.getElementById("blogForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
+// list of availible values, refer to records.js
+
   const data = {
     title: document.getElementById("title").value,
+    name: document.getElementById("name").value,
     category: document.getElementById("category").value,
-    blogbody: document.getElementById("blogbody").value,
+    content: document.getElementById("content").value,
   };
 
   try {
-    const res = await fetch("http://localhost:5050/record", {
+    const res = await fetch("http://localhost:5050/blogs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
     });
-
+// better error handler
     if (res.ok) {
       alert("Blog created!");
       document.getElementById("blogForm").reset();
+      window.location.href = "blogs.html"; // Redirect after creation
     } else {
-      alert("Failed to create blog.");
+      const error = await res.json();
+      alert(`Failed to create blog: ${error.message || res.statusText}`);
     }
   } catch (err) {
     console.error(err);
-    alert("Error submitting blog.");
+    alert("Error submitting blog. Check console for details.");
   }
 });
     </script>
 </body>
-
-<script>
-
-</script>
-
 </html>
