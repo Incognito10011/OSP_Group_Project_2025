@@ -5,9 +5,10 @@ from openai import OpenAI
 from flask_cors import CORS  # Import CORS
 
 # Load environment variables
-load_dotenv()
+dotenv_path = os.path.join(os.path.dirname(__file__), 'Server', '.env')
+load_dotenv(dotenv_path)
 
-# Initialize OpenAI client
+# Initialize OpenAI client, You will need to find the .env file (Which is located in server) to make the API chat bot work
 api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:
     raise ValueError("Missing OpenAI API key. Please check your .env file.")
