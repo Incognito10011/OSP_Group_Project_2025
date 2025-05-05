@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <title>JED Blogs</title>
-  
         <style>
             body {
                 padding: 0;
@@ -41,11 +40,10 @@
             }
     
             .main {
-                background-color: rgba(0, 0, 0, 0.5);
                 text-align: center;
                 color: white;
-                width: 65%;
-                margin-left: 17.5%;
+                width: 80%;
+                margin-left: 20%;
                 padding: 20px;
                 margin-top: 3%;
             }
@@ -143,81 +141,7 @@
                 text-align: center;
                 font-size: 3em;
             }
-
-            .contact_writing {
-                text-align: center;
-                font-size: 1.5em;
-            }
-
-            .github {
-                margin-left: 45%;
-                margin-right: 45%;
-                width: 10%;
-            }
-
-            .contact_box {
-                margin-left: 25%;
-                width: 50%;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                background-color: black;
-                margin-top: 4%;
-                color: white;
-                border: 2px solid white;
-                border-radius: 20px;
-            }
-    
-            .floating-button {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                padding: 10px 15px;
-                background-color: white;
-                color: black;
-                border: 2px solid black;
-                border-radius: 5px;
-                cursor: pointer;
-                font-size: 3rem;
-            }
-
-            .floating-box {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                background: white;
-                border: 3px solid black;
-                padding: 15px;
-                width: 400px;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-                display: none;
-                max-height: 700px;
-                border-radius: 30px;
-            }
-
-            .close_button {
-                font-size: 1rem;
-                margin-left: 6%;
-                cursor: pointer;
-                border: 2px solid black;
-                background-color: white;
-            }
-
-            .blog_button {
-                font-size: 1rem;
-                cursor: pointer;
-                width: 30%;
-                border: 2px solid black;
-                background-color: white;
-                border-radius: 30px;
-            }
         </style>
-        <script>
-            async function getDinoFact() {
-                const response = await fetch("http://127.0.0.1:5000/get_dino_fact");
-                const data = await response.json();
-                document.getElementById("fact").innerText = data.fact;
-            }
-        </script>
     </head>
     <body>
         <header>
@@ -239,41 +163,74 @@
                 </div>
             </div>
         </header>
-        <main>
-            <div class="contact_box">
-                <p class="homemessage"><b>Contact Us</b></p>
-                <p class="contact_writing">If you have any questions feel free to contact us</p>
-                <p class="contact_writing">In our Github we have multiple files that may help to answer your questions</p>
-                <p class="contact_writing">Here is our Github:</p>
-                <a href="https://github.com/Incognito10011/OSP_Group_Project_2025"><img src="images/github.png" class="github"></a>
+
+
+        <div id="wrapper" style="display:flex; justify-content:center; align-items:center; height:100%;">
+            <div id="blogDetails">
+              <p>Loading blog...</p>
             </div>
-            <button class="floating-button" id="toggleButton">AI</button>
-            <div class="floating-box" id="blogBox">
-                <h3>Click the button for blog inspiration! <button class="close_button" id="close"><b>V</b></button></h3>
-                <button onclick="getDinoFact()" class="blog_button">Get Blog idea</button>
-                <p id="fact"></p>
-            </div>
-        </main>
+        </div>
+
+
         <footer>
             <div class="copyright">
                 <p>&copy 2024 JED Blogs</p>
             </div>
         </footer>
+
         <script>
             function toggleMobileMenu(menu) {
                 menu.classList.toggle('open');
             }
         </script>
+
         <script>
-            document.getElementById("toggleButton").addEventListener("click", function() {
-                document.getElementById("toggleButton").style.display = "none";
-                document.getElementById("blogBox").style.display = "block";
-            });
-        
-            document.getElementById("close").addEventListener("click", function() {
-                document.getElementById("toggleButton").style.display = "block";
-                document.getElementById("blogBox").style.display = "none";
-            });
+            async function loadBlog() {
+                const params = new URLSearchParams(window.location.search);
+                const blogId = params.get("id");
+
+                const container = document.getElementById("blogDetails");
+                container.innerHTML = ''; // clear loading message
+
+                if (!blogId) {
+                    container.innerHTML = "<p style='color:red;'>No blog ID found in URL.</p>";
+                    return;
+                }
+
+                try {
+                    const res = await fetch(`http://localhost:5050/blogs/${blogId}`);
+                    if (!res.ok) throw new Error(`HTTP status ${res.status}`);
+                    const blog = await res.json();
+
+                    // Style the container
+                    container.style.backgroundColor = "white";
+                    container.style.width = "90%";
+                    container.style.maxWidth = "800px";
+                    container.style.padding = "30px";
+                    container.style.borderRadius = "10px";
+                    container.style.boxShadow = "0 4px 12px rgba(0,0,0,0.15)";
+                    container.style.boxSizing = "border-box";
+                    container.style.marginTop = "2%";
+                    container.style.marginBottom = "2%";
+
+                    // Create HTML content
+                    container.innerHTML = `
+                    <h1 style="margin:0; font-size:28px; text-align:center;">${blog.title}</h1>
+                    <hr style="margin:10px 0; border:none; height:1px; background:#ddd;">
+                    <div style="margin:10px 0; font-weight:bold; color:#444;">Author: ${blog.name}</div>
+                    <hr style="margin:10px 0; border:none; height:1px; background:#ddd;">
+                    <div style="margin:10px 0; font-weight:bold; color:#444;">Category: ${blog.category}</div>
+                    <hr style="margin:10px 0; border:none; height:1px; background:#ddd;">
+                    <div style="margin-top:20px; line-height:1.7; color:#333;">${blog.content}</div>
+                    `;
+
+                } catch (err) {
+                    console.error("Error loading blog:", err);
+                    container.innerHTML = "<p style='color:red;'>Failed to load blog.</p>";
+                }
+            }
+
+            loadBlog();
         </script>
     </body>
 </html>

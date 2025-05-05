@@ -39,36 +39,13 @@
                 font-weight: bold;
                 width: 90%;
             }
-    
-            .header-top .contact {
-                text-align: right;
-            }
-    
-            .header-top .contact p {
-                margin: 0;
-                line-height: 1.5;
-            }
-    
-            .signout {
-                border: 2px solid red;
-                padding: 8px 18px;
-                border-radius: 5px;
-                transition: background-color 0.5s ease, background-position 0.5s ease;
-            }
-    
-            .signout:hover {
-                background-color: red;
-                color: white;
-            }
-    
+
             .main {
-                background-color: rgba(0, 0, 0, 0.5);
                 text-align: center;
                 color: white;
-                width: 65%;
-                margin-left: 17.5%;
+                width: 75%;
+                margin-left: 12.5%;
                 padding: 20px;
-                margin-top: 3%;
             }
     
             #dropdown-menu div {
@@ -101,7 +78,7 @@
             .mobile-menu {
                 display: none;
                 position: absolute;
-                top: 21%;
+                top: auto;
                 left: 0;
                 width: 25%;
                 background-color: black;
@@ -145,7 +122,6 @@
                 padding-bottom: 20px;
             }
     
-    
             footer {
                 background-color: black;
                 color: white;
@@ -154,30 +130,6 @@
                 flex-direction: column;
                 align-items: center;
                 margin-top: auto;
-            }
-    
-            .left, .right {
-                padding: 5px 0;
-                margin: 0;
-                width: 100%;
-                text-align: center;
-            }
-    
-            .right ul {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-            }
-    
-            .right a {
-                color: black;
-                text-decoration: none;
-            }
-    
-            .footernav1 {
-                padding-top: 20px;
-                padding-bottom: 10px;
-                border-top: 2px solid black;
             }
     
             .bottommain h4 {
@@ -192,8 +144,6 @@
         </style>
     </head>
     <body>
-
-
         <header>
             <div class="header-top">
                 <div id="dropdown-menu" onclick="toggleMobileMenu(this)">
@@ -210,86 +160,70 @@
                 </div>
                 <div class="name">
                     <img src="logo.png" width="200" height="150" alt="JED BLOGS">
-
                 </div>
             </div>
         </header>
-
-
         <main>
             <div class="main">
                 <p class="homemessage"><b>Blogs</b></p>
-                <div id="blogList"></div>
-                
-                
+                <div id="blogList" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;"></div>  
             </div>
-
         </main>
-
-
         <footer>
             <div class="copyright">
                 <p>&copy 2024 JED Blogs</p>
             </div>
         </footer>
-
         <script>
             function toggleMobileMenu(menu) {
-    menu.classList.toggle('open');
-}
+                menu.classList.toggle('open');
+            }
         </script>
-
         <script>
-        // script to get blogs
-async function fetchAndDisplayBlogs() {
+            async function fetchAndDisplayBlogs() {
+                const blogList = document.getElementById("blogList");
+                if (!blogList) {
+                    console.error("blogList element not found");
+                    return;
+                }
 
-const blogList = document.getElementById("blogList");
-if (!blogList) {
-    console.error("blogList element not found");
-    return;
-}
-  try {
- //loading message
-  blogList.innerHTML = "<p>Loading blogs...</p>";
+                try {
+                    blogList.innerHTML = "<p>Loading blogs...</p>";
+
+                    const res = await fetch("http://localhost:5050/blogs");
+                    if (!res.ok) throw new Error(`http error status: ${res.status}`);
+
+                    const blogs = await res.json();
+                    blogList.innerHTML = ''; // Clear loading message
+
+                    blogs.forEach(blog => {
+                    const blogCard = document.createElement("div");
+                    blogCard.style.border = "1px solid #ccc";
+                    blogCard.style.padding = "16px";
+                    blogCard.style.borderRadius = "8px";
+                    blogCard.style.backgroundColor = "black";
+                    blogCard.style.boxShadow = "0 2px 5px rgba(0,0,0,0.1)";
+                    blogCard.style.display = "flex";
+                    blogCard.style.flexDirection = "column";
+                    blogCard.style.justifyContent = "space-between";
 
 
-    const res = await fetch("http://localhost:5050/blogs");
-    if (!res.ok) throw new Error(`http error status: ${res.status}`);
+                    blogCard.innerHTML = `
+                        <h2>${blog.title}</h2>
+                        <p><strong>Author:</strong> ${blog.name}</p>
+                        <p><strong>Type:</strong> ${blog.category}</p>
+                        <a href="viewBlog.html?id=${blog._id}" style="margin-top: auto; padding: 10px; text-align: center; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none;">View Blog</a>
+                    `;
 
-    const blogs = await res.json();
+                    blogList.appendChild(blogCard);
+                    });
+                } catch (err) {
+                    console.error("Error fetching blogs:", err);
+                    blogList.innerHTML = "<p style='color: red;'>Failed to load blogs.</p>";
+                }
+            }
 
-   // Clears loading message
-  blogList.innerHTML = '';
-
-    console.log("Fetched blogs:", blogs);
-
-    console.log("Fetch response:", res);
-
-// How the blogs will display, including format, refer to records.js for available formatting.
-
-    blogs.forEach(blog => {
-      const blogCard = document.createElement("div");
-      blogCard.style.border = "1px solid white";
-      blogCard.style.margin = "20px 0";
-      blogCard.style.padding = "20px";
-      blogCard.style.borderRadius = "8px";
-      blogCard.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
-      blogCard.innerHTML = `
-        <h2>${blog.title}</h2>
-        <h3>${blog.name}</h3>
-        <h4>Category: ${blog.category}</h4>
-        <p>${blog.content}</p>
-      `;
-
-      blogList.appendChild(blogCard);
-    });
-  } catch (err) {
-    console.error("Error fetching blogs:", err);
-    blogList.innerHTML = "<p style='color: red;'>Failed to load blogs.</p>";
-  }
-}
-
-fetchAndDisplayBlogs();
-</script>
+            fetchAndDisplayBlogs();
+        </script>
     </body>
 </html>

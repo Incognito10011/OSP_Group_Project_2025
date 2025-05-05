@@ -1,246 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create Blog Page</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Blog Page</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+            .create-container {
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 700px;
+                height: 90%;
+            }
 
-        .create-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 700px;
-            height: 90%;
-        }
+            .create-container h3 {
+                text-align: center;
+                margin-bottom: 10px;
+            }
 
-        .create-container h3 {
-            text-align: center;
-            margin-bottom: 10px;
-        }
+            .create-container form {
+                display: flex;
+                flex-direction: column;
+            }
 
-        .create-container form {
-            display: flex;
-            flex-direction: column;
-        }
+            .create-container label {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
 
-        .create-container label {
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
+            .create-container input,
+            .create-container select,
+            .create-container textarea {
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 1em;
+            }
 
-        .create-container input,
-        .create-container select,
-        .create-container textarea {
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1em;
-        }
+            .create-container input[type="submit"] {
+                background-color: green;
+                color: white;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+                width: 50%;
+                margin-left: 25%;
+                transition: background-color 0.3s;
+            }
 
-        .create-container input[type="submit"] {
-            background-color: green;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            width: 50%;
-            margin-left: 25%;
-            transition: background-color 0.3s;
-        }
+            .create-container input[type="submit"]:hover {
+                background-color: darkgreen;
+            }
 
-        .create-container input[type="submit"]:hover {
-            background-color: darkgreen;
-        }
+            .create-container .error-message {
+                color: red;
+                font-size: 14px;
+                margin-bottom: 20px;
+                display: none;
+            }
 
-        .create-container .error-message {
-            color: red;
-            font-size: 14px;
-            margin-bottom: 20px;
-            display: none;
-        }
+            .create-container textarea {
+                font-size: 1em;
+                margin-bottom: 20px;
+            }
 
-        .create-container textarea {
-            font-size: 1em;
-            margin-bottom: 20px;
-        }
+            .back-button {
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                padding: 10px 15px;
+                background-color: white;
+                color: black;
+                border: 2px solid black;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1em;
+            }
+            
+            .floating-button {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 10px 15px;
+                background-color: white;
+                color: black;
+                border: 2px solid black;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 3rem;
+            }
+            .floating-box {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: white;
+                border: 3px solid black;
+                padding: 15px;
+                width: 400px;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                display: none;
+                max-height: 700px;
+                border-radius: 30px;
+            }
 
-        .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            padding: 10px 15px;
-            background-color: white;
-            color: black;
-            border: 2px solid black;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-        }
-          
+            .close_button {
+                font-size: 1rem;
+                margin-left: 6%;
+                cursor: pointer;
+                border: 2px solid black;
+                background-color: white;
+            }
 
-        .floating-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            background-color: white;
-            color: black;
-            border: 2px solid black;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 3rem;
-        }
-        .floating-box {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: white;
-            border: 3px solid black;
-            padding: 15px;
-            width: 400px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            display: none;
-            max-height: 700px;
-            border-radius: 30px;
-        }
+            .blog_button {
+                font-size: 1rem;
+                cursor: pointer;
+                width: 30%;
+                border: 2px solid black;
+                background-color: white;
+                border-radius: 30px;
+            }
+        </style>
+        <script>
+            async function getDinoFact() {
+                const response = await fetch("http://127.0.0.1:5000/get_dino_fact");
+                const data = await response.json();
+                document.getElementById("fact").innerText = data.fact;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="create-container">
+            <h3>Create Your Blog</h3>
 
-        .close_button {
-            font-size: 1rem;
-            margin-left: 6%;
-            cursor: pointer;
-            border: 2px solid black;
-            background-color: white;
-        }
+            <a href="index.html"><button class="back-button"><-- Back</button></a>
 
-        .blog_button {
-            font-size: 1rem;
-            cursor: pointer;
-            width: 30%;
-            border: 2px solid black;
-            background-color: white;
-            border-radius: 30px;
-        }
+            <form id="blogForm">
+                <label for="title">Blog Title:</label>
+                <textarea id="title" name="title" placeholder="Enter Blog Title" rows="1" required></textarea>
 
-    </style>
+                <label for="name">Writers Name:</label>
+                <textarea id="name" name="name" placeholder="Enter Your Name" rows="1" required></textarea>
 
-<script>
-    async function getDinoFact() {
-        const response = await fetch("http://127.0.0.1:5000/get_dino_fact");
-        const data = await response.json();
-        document.getElementById("fact").innerText = data.fact;
-    }
-</script>
-</head>
+                <label for="category">Choose Blog Category:</label>
+                <select id="category" name="category" required>
+                    <option value="">-- Select a Category --</option>
+                    <option value="tech">Tech</option>
+                    <option value="food">Food</option>
+                    <option value="dinosaurs">Dinosaurs</option>
+                    <option value="travel">Travel</option>
+                    <option value="lifestyle">Lifestyle</option>
+                </select>
 
-<body>
+                <label for="content">Blog Content:</label>
+                <textarea id="content" name="content" placeholder="Enter Blog Content" rows="20" required></textarea>
 
-    <div class="create-container">
-        <h3>Create Your Blog</h3>
+                <div class="error-message" id="error-message">
+                    Please fill in all fields correctly!
+                </div>
 
-        <a href="index.html"><button class="back-button"><-- Back</button></a>
+                <input type="submit" value="Create" id="createButton">
+            </form>
 
-        <form id="blogForm">
-            <label for="title">Blog Title:</label>
-            <textarea id="title" name="title" placeholder="Enter Blog Title" rows="1" required></textarea>
+        </div>
 
-            <label for="name">Writers Name:</label>
-            <textarea id="name" name="name" placeholder="Enter Your Name" rows="1" required></textarea>
+        <button class="floating-button" id="toggleButton">AI</button>
+        <div class="floating-box" id="Aicontent">
+            <h3>Click the button for blog inspiration! <button class="close_button" id="close"><b>V</b></button></h3>
+            <button onclick="getDinoFact()" class="blog_button">Get Blog idea</button>
+            <p id="fact"></p>
+        </div>
 
-            <label for="category">Choose Blog Category:</label>
-            <select id="category" name="category" required>
-                <option value="">-- Select a Category --</option>
-                <option value="tech">Tech</option>
-                <option value="food">Food</option>
-                <option value="dinosaurs">Dinosaurs</option>
-                <option value="travel">Travel</option>
-                <option value="lifestyle">Lifestyle</option>
-            </select>
+        <script>
+            // Ai script
+            document.getElementById("toggleButton").addEventListener("click", function() {
+                document.getElementById("toggleButton").style.display = "none";
+                document.getElementById("Aicontent").style.display = "block";
+            });
 
-            <label for="content">Blog Content:</label>
-            <textarea id="content" name="content" placeholder="Enter Blog Content" rows="20" required></textarea>
+            document.getElementById("close").addEventListener("click", function() {
+                document.getElementById("toggleButton").style.display = "block";
+                document.getElementById("Aicontent").style.display = "none";
+            });
 
-            <div class="error-message" id="error-message">
-                Please fill in all fields correctly!
-            </div>
+            // blog creation script
 
-            <input type="submit" value="Create" id="createButton">
-        </form>
+            document.getElementById("blogForm").addEventListener("submit", async (e) => {
+                e.preventDefault();
 
-    </div>
+                // list of availible values, refer to records.js
 
-    <button class="floating-button" id="toggleButton">AI</button>
-            <div class="floating-box" id="Aicontent">
-                <h3>Click the button for blog inspiration! <button class="close_button" id="close"><b>V</b></button></h3>
-                <button onclick="getDinoFact()" class="blog_button">Get Blog idea</button>
-                <p id="fact"></p>
-            </div>
+                const data = {
+                    title: document.getElementById("title").value,
+                    name: document.getElementById("name").value,
+                    category: document.getElementById("category").value,
+                    content: document.getElementById("content").value,
+                };
 
-    <script>
-
-        // Ai script
-
-        document.getElementById("toggleButton").addEventListener("click", function() {
-        document.getElementById("toggleButton").style.display = "none";
-        document.getElementById("Aicontent").style.display = "block";
-    });
-
-    document.getElementById("close").addEventListener("click", function() {
-        document.getElementById("toggleButton").style.display = "block";
-        document.getElementById("Aicontent").style.display = "none";
-    });
-
-// blog creation script
-
-document.getElementById("blogForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-// list of availible values, refer to records.js
-
-  const data = {
-    title: document.getElementById("title").value,
-    name: document.getElementById("name").value,
-    category: document.getElementById("category").value,
-    content: document.getElementById("content").value,
-  };
-
-  try {
-    const res = await fetch("http://localhost:5050/blogs", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
-// better error handler
-    if (res.ok) {
-      alert("Blog created!");
-      document.getElementById("blogForm").reset();
-      window.location.href = "blogs.html"; // Redirect after creation
-    } else {
-      const error = await res.json();
-      alert(`Failed to create blog: ${error.message || res.statusText}`);
-    }
-  } catch (err) {
-    console.error(err);
-    alert("Error submitting blog. Check console for details.");
-  }
-});
-    </script>
-</body>
+                try {
+                    const res = await fetch("http://localhost:5050/blogs", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                    });
+                    // better error handler
+                    if (res.ok) {
+                    alert("Blog created!");
+                    document.getElementById("blogForm").reset();
+                    window.location.href = "blogs.html"; // Redirect after creation
+                    } else {
+                    const error = await res.json();
+                    alert(`Failed to create blog: ${error.message || res.statusText}`);
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Error submitting blog. Check console for details.");
+                }
+            });
+        </script>
+    </body>
 </html>
