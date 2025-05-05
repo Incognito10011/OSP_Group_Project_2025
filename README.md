@@ -83,7 +83,7 @@ then uninstall python, reinstall it and **make sure to check add to PATH**.
 restart your computer and it should work.
 
   ### How to Connect AI
-  #### After installing the needed dependencies
+  #### After installing the needed dependencies, If not please follow the tutorial [HERE](#dependencies-preferably-install-in-a-virtual-environment)
   #### Open
 
     script.py
