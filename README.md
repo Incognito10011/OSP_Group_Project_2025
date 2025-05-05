@@ -88,11 +88,11 @@ restart your computer and it should work.
 
     script.py
 
-  #### You will be required to get your own API key, but for demonstration purposes It is provided for you.
+  #### You will be required to get your own API key or By contacting us, so we can provide a test key.
   #### To edit/add your own API key:
-  #### Edit the .env file located in public
-      OPENAI_API_KEY= " Your key Here"
-  #### The line of code will look something like this, add your API key, where it says "Your key Here"
+  #### Edit the .env file located in Server
+      OPENAI_API_KEY="Please Enter Your Own Key Here"
+  #### The line of code will look something like this, add your API key, where it says "Please Enter Your Own Key Here"
   ### Note: This AI is made using OpenAI, unexpect problems will occur if different AI API keys are used.
       
     
