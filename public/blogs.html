@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JED Blogs</title>
+  
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                font-family: Arial, sans-serif;
+                background: linear-gradient(90deg, red, blue, rgb(0, 238, 255) ,yellow, green, purple, orange);
+                background-size: 600% 100%;
+                animation: moveBackground 20s linear infinite alternate;
+            }
+
+            @keyframes moveBackground {
+                0% {
+                    background-position: 0% 50%;
+                }
+                100% {
+                    background-position: 100% 50%;
+                }
+            }
+    
+            .header-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+                background-color: black;
+                color: white;
+            }
+    
+            .header-top .name {
+                font-size: 24px;
+                font-weight: bold;
+                width: 90%;
+            }
+
+            .main {
+                text-align: center;
+                color: white;
+                width: 75%;
+                margin-left: 12.5%;
+                padding: 20px;
+            }
+    
+            #dropdown-menu div {
+                width: 35px;
+                height: 3px;
+                background-color: white;
+                margin: 6px 0;
+                transition: 0.4s;
+            }
+    
+            .open .dropdown-line1 {
+                -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+                transform: rotate(-45deg) translate(-6px, 6px);
+            }
+    
+            .open .dropdown-line2 {
+                opacity: 0;
+            }
+    
+            .open .dropdown-line3 {
+                -webkit-transform: rotate(45deg) translate(-6px, -8px);
+                transform: rotate(45deg) translate(-6px, -8px);
+            }
+    
+            .open .mobile-menu {
+                display: flex;
+                flex-direction: column;
+            }
+    
+            .mobile-menu {
+                display: none;
+                position: absolute;
+                top: auto;
+                left: 0;
+                width: 25%;
+                background-color: black;
+                padding: 0;
+                border-right: 5px solid white;
+                border-bottom: 5px solid white;
+            }
+    
+            ul {
+                list-style-type: none;
+            }
+    
+            .mobile-menu li {
+                text-align: left;
+                margin-left: 25%;
+                width: 50%;
+            }
+    
+            .mobile-menu a {
+                color: white;
+                text-decoration: none;
+                font-size: 2em;
+            }
+
+            .mobile-menu a:hover {
+                color: greenyellow;
+            }
+    
+            .nav1, .nav2, .nav3, .nav4{
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid white;
+            }
+    
+            .nav1 {
+                padding-top: 20px;
+            }
+
+            .nav5 {
+                padding-top: 10px;
+                padding-bottom: 20px;
+            }
+    
+            footer {
+                background-color: black;
+                color: white;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: auto;
+            }
+    
+            .bottommain h4 {
+                text-align: left;
+            }
+
+            .homemessage {
+                text-align: center;
+                font-size: 3em;
+            }
+    
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-top">
+                <div id="dropdown-menu" onclick="toggleMobileMenu(this)">
+                    <div class="dropdown-line1"></div>
+                    <div class="dropdown-line2"></div>
+                    <div class="dropdown-line3"></div>
+                    <ul class="mobile-menu">
+                        <li class="nav1"><a href="index.html">Home</a></li>
+                        <li class="nav2"><a href="blogs.html">Blogs</a></li>
+                        <li class="nav3"><a href="create.html">Create</a></li>
+                        <li class="nav4"><a href="aboutus.html">About Us</a></li>
+                        <li class="nav5"><a href="contactus.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="name">
+                    <img src="logo.png" width="200" height="150" alt="JED BLOGS">
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="main">
+                <p class="homemessage"><b>Blogs</b></p>
+                <div id="blogList" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;"></div>  
+            </div>
+        </main>
+        <footer>
+            <div class="copyright">
+                <p>&copy 2024 JED Blogs</p>
+            </div>
+        </footer>
+        <script>
+            function toggleMobileMenu(menu) {
+                menu.classList.toggle('open');
+            }
+        </script>
+        <script>
+            async function fetchAndDisplayBlogs() {
+                const blogList = document.getElementById("blogList");
+                if (!blogList) {
+                    console.error("blogList element not found");
+                    return;
+                }
+
+                try {
+                    blogList.innerHTML = "<p>Loading blogs...</p>";
+
+                    const res = await fetch("http://localhost:5050/blogs");
+                    if (!res.ok) throw new Error(`http error status: ${res.status}`);
+
+                    const blogs = await res.json();
+                    blogList.innerHTML = ''; // Clear loading message
+
+                    blogs.forEach(blog => {
+                    const blogCard = document.createElement("div");
+                    blogCard.style.border = "1px solid #ccc";
+                    blogCard.style.padding = "16px";
+                    blogCard.style.borderRadius = "8px";
+                    blogCard.style.backgroundColor = "black";
+                    blogCard.style.boxShadow = "0 2px 5px rgba(0,0,0,0.1)";
+                    blogCard.style.display = "flex";
+                    blogCard.style.flexDirection = "column";
+                    blogCard.style.justifyContent = "space-between";
+
+
+                    blogCard.innerHTML = `
+                        <h2>${blog.title}</h2>
+                        <p><strong>Author:</strong> ${blog.name}</p>
+                        <p><strong>Type:</strong> ${blog.category}</p>
+                        <a href="viewBlog.html?id=${blog._id}" style="margin-top: auto; padding: 10px; text-align: center; background-color: #007BFF; color: white; border-radius: 4px; text-decoration: none;">View Blog</a>
+                    `;
+
+                    blogList.appendChild(blogCard);
+                    });
+                } catch (err) {
+                    console.error("Error fetching blogs:", err);
+                    blogList.innerHTML = "<p style='color: red;'>Failed to load blogs.</p>";
+                }
+            }
+
+            fetchAndDisplayBlogs();
+        </script>
+    </body>
+</html>
