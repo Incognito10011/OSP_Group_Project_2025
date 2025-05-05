@@ -69,7 +69,7 @@ or
 
 #### Known issues for StartProgram script
 
-You will need to make the file executible yourself by useing the command
+You will need to make the file executible yourself by using the command
 
     chmod +x StartProgramLinuxMac
 
