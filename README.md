@@ -8,7 +8,7 @@
 [![Static Badge](https://img.shields.io/badge/MIT-MIT?label=Licence&color=orange)](LICENSE)
 
 
-## Table Of Contents
+# Table Of Contents
 - [Overview](#overview)
 - [Features](#features)
 - [How To Contribute](#how-to-contribute)
@@ -26,7 +26,7 @@
 
 ---
 
-## Overview
+# Overview
 
 This is a blog website that includes all the featues of any other blog website.
 We have Multiple different Pages
@@ -37,16 +37,16 @@ We have Multiple different Pages
   - <b>Contact Us Page:</b>   Has information about how to contact us
   - <b>AI:</b>   AI can be used for blog inspiration
 
-## Features
+# Features
 
 - View Blogs
 - Create Blogs
 - AI Blog idea generator
 
-## How To Contribute
+# How To Contribute
 There is many different ways you can contribute. If you want more information, please check our CONTRIBUTING.md file <a href="https://github.com/Incognito10011/OSP_Group_Project_2025/blob/main/CONTRIBUTING.md">HERE</a> and please check the Code of Conduct <a href="https://github.com/Incognito10011/OSP_Group_Project_2025/blob/main/CODE_OF_CONDUCT.md">HERE</a> before contributing
 
-## How To Use
+# How To Use
 ## Dependencies (preferably, install in a virtual environment)
   ### For Python
   Install the following packages:
@@ -57,7 +57,7 @@ There is many different ways you can contribute. If you want more information, p
 
     npm install express cors dotenv mongodb
 
-  ### How to Connect Database
+  ## How to Connect Database
 
   Depending on your system, run either
   
@@ -82,7 +82,7 @@ then uninstall python, reinstall it and **make sure to check add to PATH**.
 
 restart your computer and it should work.
 
-  ### How to Connect AI
+  ## How to Connect AI
   #### After installing the needed dependencies, If not please follow the tutorial [HERE](#dependencies-preferably-install-in-a-virtual-environment)
   #### You will be required to get your own API key or By contacting us, so we can provide a test key.
   #### To edit/add your own API key:
@@ -94,22 +94,22 @@ restart your computer and it should work.
     
 
 
-## Languages Used
+# Languages Used
 [<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" alt="Javascript" width="48">](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" alt="Typescript" width="48">](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png" alt="css" width="35">](https://www.w3.org/Style/CSS/Overview.en.html)
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/768px-Python-logo-notext.svg.png" alt="Python" width="48">](https://docs.python.org/3/)
 
 
-## Tools Used
+# Tools Used
 [<img src="https://raw.githubusercontent.com/Delta456/Delta456/master/img/git.png" alt="Git" width="48">](https://git-scm.com/) 
 [<img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="VSCode" width="48">](https://code.visualstudio.com/)
 
 
-## Licence
+# Licence
 We chose the MIT Licence. <a href="https://github.com/Incognito10011/OSP_Group_Project_2025/blob/main/LICENSE">See Licence Here</a>
 
-## Contributors
+# Contributors
 
 <table>
   <tr>
